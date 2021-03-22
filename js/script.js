@@ -67,6 +67,20 @@ function clickedDot() {
     thisDot.addClass('fas');
 }
 
+// Funzione cambio immagine via Arrow Keys su tastiera
+function arrowPressed(event) {
+    switch (event.keyCode) {
+        case 39:
+            nextImg();
+            break;
+        case 37:
+            prevImg();
+            break;
+        default:
+            break;
+    }
+}
+
 function init(){
     // Click avanti
     $('#right-arrow').click(nextImg);
@@ -74,6 +88,9 @@ function init(){
 
     // Click dots
     $('.dots i').click(clickedDot)
+
+    //Left arrow 
+    $(document).keydown(arrowPressed);
 }
 
 $(document).ready(init);
