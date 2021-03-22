@@ -12,6 +12,9 @@ function nextImg(){
 
     activeImg.addClass('active');
 
+    // Richiamo la funzione di collegamento frecce/pallini
+    linkedDotChange(activeImg);
+
     console.log('Immagine attiva: ' + activeImg[0].alt);
 }
 
@@ -28,7 +31,21 @@ function prevImg(){
     }
     
     activeImg.addClass('active');
+
+    // Richiamo la funzione di collegamento frecce/pallini
+    linkedDotChange(activeImg);
+
     console.log('Immagine attiva: ' + activeImg[0].alt);
+}
+
+// Funzione cambio pallino collegato alle frecce
+function linkedDotChange(activeImg) {
+    var dot = $('.dots i');
+    var prevDot = $('i.fas');
+    prevDot.removeClass('fas');
+    prevDot.addClass('far');
+
+    var activeDot = dot.eq(activeImg.attr('data-imgPos')).addClass('fas');
 }
 
 // Funzione cambio immagine via Dots
